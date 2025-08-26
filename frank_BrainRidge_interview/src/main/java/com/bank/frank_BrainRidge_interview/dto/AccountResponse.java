@@ -1,29 +1,24 @@
-package com.bank.frank_BrainRidge_interview.model;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.ArrayList;
+package com.bank.frank_BrainRidge_interview.dto;
 
-public class Account {
+import java.time.LocalDateTime;
+
+
+public class AccountResponse {
     private String accountId;
-    private String email;
     private String accountHolderName;
+    private String email;
     private Double balance;
     private LocalDateTime createdAt;
-    private List<Transaction> transactions;
 
-    // Default constructor
-    public Account() {
-        this.transactions = new ArrayList<>();
-        this.createdAt = LocalDateTime.now();
-    }
+    // Constructors
+    public AccountResponse() {}
 
-    // Parameterized constructor
-    public Account(String accountId, String accountHolderName, String email, Double balance) {
-        this();
+    public AccountResponse(String accountId, String accountHolderName, String email, Double balance, LocalDateTime createdAt) {
         this.accountId = accountId;
         this.accountHolderName = accountHolderName;
         this.email = email;
         this.balance = balance;
+        this.createdAt = createdAt;
     }
 
     // Getters and Setters
@@ -40,6 +35,5 @@ public class Account {
     public void setBalance(Double balance) { this.balance = balance; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
-    public List<Transaction> getTransactions() { return transactions; }
-
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }
