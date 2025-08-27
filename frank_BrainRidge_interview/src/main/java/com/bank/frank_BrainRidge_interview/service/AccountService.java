@@ -52,6 +52,15 @@ public class AccountService {
                 .collect(Collectors.toList());
     }
 
+    public Account getAccountEntity(String accountId) {
+        return accountRepository.findById(accountId)
+                .orElseThrow(() -> new AccountNotFoundException("Account not found with ID: " + accountId));
+    }
+
+    public Account saveAccount(Account account) {
+        return accountRepository.save(account);
+    }
+
     // Helper method to generate unique account ID
     private String generateAccountId() {
         String accountId;
