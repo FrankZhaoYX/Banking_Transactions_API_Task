@@ -22,3 +22,29 @@ Repositories: Data Access (Repository Layer)
    - Data storage and retrieval
    - Data management
    - Data access abstraction
+
+### Technology Apply
+
+- **Java 8**
+- **Spring Boot 2.7.18**
+- **Spring Web** - RESTful web services
+- **Maven** - Build tool and dependency management
+
+
+### API Endpoints
+
+#### Account Management
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/v1/accounts` | Create a new account |
+| `GET` | `/api/v1/accounts` | Retrieve all accounts |
+| `GET` | `/api/v1/accounts/{accountId}` | Retrieve specific account |
+
+#### Transaction Management
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/api/v1/transactions/transfer` | Transfer funds between accounts |
+| `GET` | `/api/v1/transactions/account/{accountId}` | Get transaction history for account |
+| `GET` | `/api/v1/transactions/{transactionId}` | Get specific transaction details |
+
+
