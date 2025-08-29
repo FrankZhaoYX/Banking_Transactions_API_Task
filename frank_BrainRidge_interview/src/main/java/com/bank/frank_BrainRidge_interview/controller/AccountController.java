@@ -1,6 +1,6 @@
 package com.bank.frank_BrainRidge_interview.controller;
 
-import com.bank.frank_BrainRidge_interview.dto.*;;
+import com.bank.frank_BrainRidge_interview.dto.*;
 import com.bank.frank_BrainRidge_interview.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/accounts")
@@ -21,7 +23,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<AccountResponse> createAccount(@RequestBody CreateAccountRequest request) {
+    public ResponseEntity<AccountResponse> createAccount(@Valid @RequestBody CreateAccountRequest request) {
         AccountResponse response = accountService.createAccount(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

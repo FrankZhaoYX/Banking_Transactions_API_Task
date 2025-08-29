@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/transactions")
 @CrossOrigin(origins = "*")
@@ -22,7 +24,7 @@ public class TransactionController {
     }
 
     @PostMapping("/transfer")
-    public ResponseEntity<TransferResponse> transferFunds(@RequestBody TransferRequest request) {
+    public ResponseEntity<TransferResponse> transferFunds(@Valid @RequestBody TransferRequest request) {
         TransferResponse response = transactionService.transferFunds(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
